@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-BASE_URL = "http://127.0.0.1:5000"
+BASE_URL = "https://bandit-os.onrender.com"
 
 
 def safe_json(response):
