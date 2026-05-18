@@ -12,7 +12,11 @@ app = Flask(__name__)
 load_dotenv()
 
 # MongoDB Connection (SAFE)
-mongo_uri = os.getenv("MONGO_URI")
+try:
+    import streamlit as st
+    mongo_uri = st.secrets["MONGO_URI"]
+except:
+    mongo_uri = os.getenv("MONGO_URI")
 
 if not mongo_uri:
     raise ValueError("MONGO_URI not found. Add it in .env file.")
